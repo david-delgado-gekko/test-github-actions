@@ -18,29 +18,5 @@ jobs:
         uses: actions/checkout@v2
 
       # Runs a command
-      - name: clone project
-        env:
-          GITLABSSHKEY: ${{ secrets.GITLABSSHKEY }}
-        run: |
-          eval $(ssh-agent)
-          ssh-add - <<< "${GITLABSSHKEY}"
-          mkdir ~/.ssh
-          ssh-keyscan -t rsa gitlab.com >> ~/.ssh/known_hosts
-          git clone git@gitlab.com:owkin/ds-workspace.git
-      - name: logging to gcloud
-        env:
-          GCLOUD_CREDENTIALS: ${{ secrets.GCLOUD_CREDENTIALS }}
-        run: |
-          echo $GCLOUD_CREDENTIALS > /tmp/gcloudCredentials
-          export GOOGLE_APPLICATION_CREDENTIALS=/tmp/gcloudCredentials
-          gcloud auth activate-service-account --key-file /tmp/gcloudCredentials
-          gcloud projects list
-      - name: terraform apply
-        env:
-          GCLOUD_CREDENTIALS: ${{ secrets.GCLOUD_CREDENTIALS }}
-        run: |
-          cd ds-workspace
-          git checkout investigation/automatic_deployment
-          cd common-cluster
-          terraform init
-          terraform plan
+      - name: test
+        run: echo ceci est un test

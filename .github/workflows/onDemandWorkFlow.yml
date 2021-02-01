@@ -1,0 +1,15 @@
+name: onDemand
+on: 
+  workflow_dispatch:
+    inputs:
+      maVar:
+        description: 'ma variable'     
+        required: true
+        default: 'valeur par defaut'
+
+jobs:
+  printInputs:
+    runs-on: ubuntu-latest
+    steps:
+    - run: |
+        echo "ma variable: ${{ github.event.inputs.maVar }}"
