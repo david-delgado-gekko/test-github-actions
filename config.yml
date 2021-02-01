@@ -1,9 +1,9 @@
 config:
   organisations:
-    - orga1:
+    orga1:
       name: Necker
       location: Paris
-    - orga2:
+    orga2:
       name: Pompidou
       location: paris
   others:
