@@ -13,3 +13,5 @@ jobs:
     steps:
     - run: |
         echo "ma variable: ${{ github.event.inputs.maVar }}"
+        jq --version
+        yq --version
