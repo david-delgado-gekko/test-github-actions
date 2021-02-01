@@ -14,11 +14,12 @@ jobs:
     # Checks out a copy of your repository on the ubuntu-latest machine
     - name: Checkout code
       uses: actions/checkout@v2
-    - run: |
-        echo "ma variable: ${{ github.event.inputs.maVar }}"
+    - name: install yq
+      run: |
+        # echo "ma variable: ${{ github.event.inputs.maVar }}"
         pip3 install yq
         export PATH=$PATH:/home/runner/.local/bin/
-        cd ..
+    - name: code exec
         echo execution pwd
         pwd
         echo execution ls
