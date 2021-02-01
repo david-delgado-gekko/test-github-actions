@@ -18,7 +18,7 @@ jobs:
       run: |
         # echo "ma variable: ${{ github.event.inputs.maVar }}"
         pip3 install yq
-        export PATH=$PATH:/home/runner/.local/bin/
+        echo 'export PATH=$PATH:/home/runner/.local/bin/' >> ~/.bashrc
     - name: code exec
       run: |
         echo execution pwd
