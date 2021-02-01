@@ -10,8 +10,6 @@ on:
 jobs:
   printInputs:
     runs-on: ubuntu-latest
-    env:
-      PATH: ${PATH}:/home/runner/.local/bin/
     steps:
     # Checks out a copy of your repository on the ubuntu-latest machine
     - name: Checkout code
@@ -22,5 +20,6 @@ jobs:
         pip3 install yq
     - name: code exec
       run: |
+        export PATH=${PATH}:/home/runner/.local/bin/
         yq '.config.organisations.orga1.name' config.yml
         yq '.config.organisations.orga2.name' config.yml
