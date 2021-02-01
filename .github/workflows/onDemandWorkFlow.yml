@@ -15,4 +15,6 @@ jobs:
         echo "ma variable: ${{ github.event.inputs.maVar }}"
         pip3 install yq
         export PATH=PATH:/home/runner/.local/bin/
-        yq --version
+        cd test-github-actions
+        yq '.config.organisations.orga1.name' config.yml
+        yq '.config.organisations.orga2.name' config.yml
