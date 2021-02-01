@@ -21,6 +21,7 @@ jobs:
     - name: code exec
       run: |
         export PATH=$PATH:/home/runner/.local/bin/
+        echo $PATH
         echo execution pwd
         pwd
         echo execution ls
