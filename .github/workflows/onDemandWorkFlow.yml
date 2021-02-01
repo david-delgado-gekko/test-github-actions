@@ -13,5 +13,5 @@ jobs:
     steps:
     - run: |
         echo "ma variable: ${{ github.event.inputs.maVar }}"
-        pip3 install yq || echo "pas pip3"
-        pip install yq || echo "pas pip"
+        pip3 install yq
+        yq --version
